@@ -14,10 +14,13 @@
 
 #include "includes.h"
 
-
+#ifdef CONFIG_DRIVER_AWEXT
+extern struct wpa_driver_ops wpa_driver_awext_ops; /* driver_awext.c */
+#else
 #ifdef CONFIG_DRIVER_WEXT
 extern struct wpa_driver_ops wpa_driver_wext_ops; /* driver_wext.c */
 #endif /* CONFIG_DRIVER_WEXT */
+#endif /* CONFIG_DRIVER_AWEXT */
 #ifdef CONFIG_DRIVER_HOSTAP
 extern struct wpa_driver_ops wpa_driver_hostap_ops; /* driver_hostap.c */
 #endif /* CONFIG_DRIVER_HOSTAP */
